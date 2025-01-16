@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Task Display</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&family=Poppins:wght@600&display=swap');
+
+    body {
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto;
+    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+}
+
+    * {
+        box-sizing: border-box
+    }
+
+    html, body {
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+
+    .h2 {
+        color: #444;
+        font-family: 'PT Sans', sans-serif
+    }
+
+    thead {
+        font-family: 'Poppins', sans-serif;
+        font-weight: bolder;
+        font-size: 16px;
+        color: #666
+    }
+
+    img {
+        width: 40px;
+        height: 40px
+    }
+
+    .name {
+        display: inline-block
+    }
+
+    .bg-blue {
+        background-color: #fff6e9;
+        border-radius: 3px;
+        color: black;
+    }
+
+    .bg-col {
+        padding: 10px;
+        padding-left: 15px;
+        background-color: #fff6e9;
+        border-radius: 3px;
+        color: black;
+    }
+
+    .fa-check,
+    .fa-minus {
+        color: blue
+    }
+
+    .bg-blue:hover {
+        background-color: #ff6b3e;
+        color: white;
+        cursor: pointer
+    }
+
+    .bg-blue:hover .fa-check,
+    .bg-blue:hover .fa-minus {
+        background-color: #ff6b3e;
+        color: white;
+    }
+
+    .table thead th,
+    .table td {
+        border: none
+    }
+
+    .table tbody td:first-child {
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px
+    }
+
+    .table tbody td:last-child {
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px
+    }
+
+    #spacing-row {
+        max-height: 1px;
+        height: 1px
+    }
+
+    @media(max-width:575px) {
+        .container {
+            width: 125%;
+            padding: 20px 10px
+        }
+    }
+
+    .data-table{
+        overflow-y: auto;
+    }
+
+    .clock {
+        color: white;
+        font-size: 60px;
+        letter-spacing: 7px;
+        font-weight: 500;
+        font-family: 'Orbitron', sans-serif; /* Menggunakan font Orbitron */
+    }
+
+    .clock-light {
+        color: white;
+        font-size: 60px;
+        letter-spacing: 7px;
+        font-weight: 500;
+        font-family: 'Orbitron', sans-serif; /* Menggunakan font Orbitron */
+    }
+
+    span {
+        display: block;
+        width: 50px;
+        height: 50px;
+        animation: ripple 0.8s linear infinite;
+        border-radius: 50px;
+    }
+
+    /* ripple effect */
+    @keyframes ripple {
+        0% {
+            box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.1),
+                        0 0 0 5px rgba(255, 165, 0, 0.1),
+                        0 0 0 10px rgba(255, 165, 0, 0.1),
+                        0 0 0 20px rgba(255, 165, 0, 0.1);
+        }
+        100% {
+            box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.1),
+                        0 0 0 5px rgba(255, 165, 0, 0.1),
+                        0 0 0 10px rgba(255, 165, 0, 0.1),
+                        0 0 0 20px rgba(255, 165, 0, 0);
+        }
+    }
+
+    /* Container styles */
+    .scrolling-text-container {
+        background-color: #eff5ff;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    /* Inner container styles */
+    .scrolling-text-inner {
+        display: flex;
+        white-space: nowrap;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 8px 0;
+    }
+
+    /* Text styles */
+    .scrolling-text {
+        display: flex;
+    }
+
+    .scrolling-text-item {
+        padding: 0 30px;
+    }
+
+    /* Apply the animation to the text items */
+    .scrolling-text-inner > div {
+        animation: var(--direction) var(--marquee-speed) linear infinite;
+    }
+
+    /* Pause the animation when a user hovers over it */
+    .scrolling-text-container:hover .scrolling-text-inner > div {
+        animation-play-state: paused;
+    }
+
+    /* Setting the Animation using Keyframes */
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes scroll-right {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    .fixed-bottom {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+  </style>
+</head>
+<body>
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+     </div>
+  <div style="padding:10px">
+    <div style="margin-bottom:10px">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="darkModeSwitch">
+        <label class="custom-control-label" for="darkModeSwitch" style="font-size:14px;"></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div style="display: flex; justify-content: center; align-items: center; border: 1px solid #ccc; margin-bottom:30px">
+            <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+        </div>
+        <!-- Employee Details Slider -->
+        <div class="card" style="padding:20px">
+          <div id="employeeDetailsCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="card">
+                  <div class="d-flex justify-content-center">
+                    <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
+                  </div>
+                  <div class="card-body text-center">
+                    <h5 class="card-title">John Doe</h5>
+                    <p style="margin-top:-10px; font-size:12px;">Web Developer</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div class="d-flex justify-content-center">
+                    <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
+                  </div>
+                  <div class="card-body text-center">
+                    <h5 class="card-title">John Doe</h5>
+                    <p style="margin-top:-10px; font-size:12px;">Web Developer</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div class="d-flex justify-content-center">
+                    <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
+                  </div>
+                  <div class="card-body text-center">
+                    <h5 class="card-title">John Doe</h5>
+                    <p style="margin-top:-10px; font-size:12px;">Web Developer</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div class="d-flex justify-content-center">
+                    <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
+                  </div>
+                  <div class="card-body text-center">
+                    <h5 class="card-title">John Doe</h5>
+                    <p style="margin-top:-10px; font-size:12px;">Web Developer</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div class="d-flex justify-content-center">
+                    <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
+                  </div>
+                  <div class="card-body text-center">
+                    <h5 class="card-title">John Doe</h5>
+                    <p style="margin-top:-10px; font-size:12px;">Web Developer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="display:none;">
+              <a class="carousel-control-prev" href="#employeeDetailsCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#employeeDetailsCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div>
+          <div>
+            <div style="margin-bottom: 10px; font-size: 14px; font-weight: 600;">
+                <table width="100%">
+                    <tr>
+                        <td width="35%">
+                            <div class="bg-col">
+                                KARYAWAN
+                            </div>
+                        </td>
+                        <td width="9.5%" align="center">
+                            <div class="bg-col" style="margin-left: 7px;">
+                                STATUS
+                            </div>
+                        </td>
+                        <td>
+                            <div class="bg-col" style="margin-left: 7px;">
+                                PEKERJAAN
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>   
+            <div class="data-table" style="display: block; max-height: 800px; overflow-y: auto; width: 100%; padding-right:15px">
+                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
+                    <tr>
+                        <td width="3%" align="center" style="padding: 10px;">
+                            <span>
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
+                            </span>
+                        </td>
+                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
+                            <b>Emilia Kollette</b>
+                        </td>
+                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
+                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
+                    </tr>
+                </table>
+                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
+                    <tr>
+                        <td width="3%" align="center" style="padding: 10px;">
+                            <span>
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
+                            </span>
+                        </td>
+                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
+                            <b>Emilia Kollette</b>
+                        </td>
+                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
+                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
+                    </tr>
+                </table>
+                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
+                    <tr>
+                        <td width="3%" align="center" style="padding: 10px;">
+                            <span>
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
+                            </span>
+                        </td>
+                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
+                            <b>Emilia Kollette</b>
+                        </td>
+                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
+                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
+                    </tr>
+                </table>
+                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
+                    <tr>
+                        <td width="3%" align="center" style="padding: 10px;">
+                            <span>
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
+                            </span>
+                        </td>
+                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
+                            <b>Emilia Kollette</b>
+                        </td>
+                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
+                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
+                    </tr>
+                </table>
+                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
+                    <tr>
+                        <td width="3%" align="center" style="padding: 10px;">
+                            <span>
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
+                            </span>
+                        </td>
+                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
+                            <b>Emilia Kollette</b>
+                        </td>
+                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
+                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
+                    </tr>
+                </table>
+                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
+                    <tr>
+                        <td width="3%" align="center" style="padding: 10px;">
+                            <span>
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
+                            </span>
+                        </td>
+                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
+                            <b>Emilia Kollette</b>
+                        </td>
+                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
+                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
+                    </tr>
+                </table>
+                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
+                    <tr>
+                        <td width="3%" align="center" style="padding: 10px;">
+                            <span>
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
+                            </span>
+                        </td>
+                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
+                            <b>Emilia Kollette</b>
+                        </td>
+                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
+                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
+                    </tr>
+                </table>
+                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
+                    <tr>
+                        <td width="3%" align="center" style="padding: 10px;">
+                            <span>
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
+                            </span>
+                        </td>
+                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
+                            <b>Emilia Kollette</b>
+                        </td>
+                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
+                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
+                    </tr>
+                </table>
+                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
+                    <tr>
+                        <td width="3%" align="center" style="padding: 10px;">
+                            <span>
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
+                            </span>
+                        </td>
+                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
+                            <b>Emilia Kollette</b>
+                        </td>
+                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
+                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
+                    </tr>
+                </table>
+                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
+                    <tr>
+                        <td width="3%" align="center" style="padding: 10px;">
+                            <span>
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
+                            </span>
+                        </td>
+                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
+                            <b>Emilia Kollette</b>
+                        </td>
+                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
+                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
+                    </tr>
+                </table>
+                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
+                    <tr>
+                        <td width="3%" align="center" style="padding: 10px;">
+                            <span>
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
+                            </span>
+                        </td>
+                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
+                            <b>Emilia Kollette</b>
+                        </td>
+                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
+                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
+                    </tr>
+                </table>
+                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
+                    <tr>
+                        <td width="3%" align="center" style="padding: 10px;">
+                            <span>
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
+                            </span>
+                        </td>
+                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
+                            <b>Emilia Kollette</b>
+                        </td>
+                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
+                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
+                    </tr>
+                </table>
+                 <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
+                    <tr>
+                        <td width="3%" align="center" style="padding: 10px;">
+                            <span>
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
+                            </span>
+                        </td>
+                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
+                            <b>Emilia Kollette</b>
+                        </td>
+                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
+                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
+                    </tr>
+                </table>
+            </div>   
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fixed-bottom">
+        <div style="width:100%; height:44px; background-color:#ffffff; text-align:center; color:#363636; font-size:11px; padding-top:2px">
+            <div class="scrolling-text-container">
+                <div class="scrolling-text-inner" style="--marquee-speed: 20s; --direction:scroll-left" role="marquee">
+                    <div class="scrolling-text">
+                        <div class="scrolling-text-item">PROFESSIONALISM</div>
+                        <div class="scrolling-text-item">INTEGRITY</div>
+                        <div class="scrolling-text-item">CONTINOUS IMPROVEMENT</div>
+                        <div class="scrolling-text-item">SERVICE EXCELLENCE</div>
+                        <div class="scrolling-text-item">PASSION</div>
+                    </div>
+                    <div class="scrolling-text">
+                        <div class="scrolling-text-item">PROFESSIONALISM</div>
+                        <div class="scrolling-text-item">INTEGRITY</div>
+                        <div class="scrolling-text-item">CONTINOUS IMPROVEMENT</div>
+                        <div class="scrolling-text-item">SERVICE EXCELLENCE</div>
+                        <div class="scrolling-text-item">PASSION</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#darkModeSwitch').on('change', function() {
+        $('body').toggleClass('bg-dark text-white');
+        $('.card').toggleClass('bg-secondary text-white');
+        $('.clock').toggleClass('color text-white');
+        $('.td').toggleClass('color text-black');
+        
+      });
+    });
+
+    var $el = $(".data-table");
+    function anim() {
+        var st = $el.scrollTop();
+        var sb = $el.prop("scrollHeight")-$el.innerHeight();
+        $el.animate({scrollTop: st<sb/2 ? sb : 0}, 30000, anim);
+    }
+    function stop(){
+        $el.stop();
+    }
+    anim();
+    $el.hover(stop, anim);
+
+    function showTime(){
+        var date = new Date();
+        var h = date.getHours(); // 0 - 23
+        var m = date.getMinutes(); // 0 - 59
+        var s = date.getSeconds(); // 0 - 59
+        
+        h = (h < 10) ? "0" + h : h;
+        m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
+        
+        var time = h + ":" + m + ":" + s;
+        document.getElementById("MyClockDisplay").innerText = time;
+        document.getElementById("MyClockDisplay").textContent = time;
+        
+        setTimeout(showTime, 1000);
+    }
+
+    showTime();
+
+    const container = document.querySelector('.scrolling-text');
+const clone = document.querySelector('.clone-text');
+let scrollAmount = 0;
+
+setInterval(() => {
+    scrollAmount += 2; // Kecepatan scroll
+    container.scrollLeft = scrollAmount;
+
+    // Jika teks pertama sudah habis, reset ke posisi awal untuk menciptakan efek loop
+    if (scrollAmount >= clone.offsetWidth) {
+        scrollAmount = 0;
+    }
+}, 20);
+
+
+
+  </script>
+</body>
+</html>
