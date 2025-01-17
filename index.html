@@ -6,9 +6,12 @@
   <title>Live Task Display</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/digital-numbers" rel="stylesheet">
+                
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&family=Poppins:wght@600&display=swap');
+    @import url('https://fonts.cdnfonts.com/css/digital-numbers');
 
     body {
         margin: auto;
@@ -85,9 +88,8 @@
     }
 
     html, body {
-        overflow-x: hidden; /* Prevent horizontal scroll */
+        overflow-x: hidden;
     }
-
 
     .h2 {
         color: #444;
@@ -111,7 +113,7 @@
     }
 
     .bg-blue {
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.7);
         border-radius: 3px;
         color: black;
     }
@@ -130,7 +132,7 @@
     }
 
     .bg-blue:hover {
-        background-color: #3469ad;
+        background-color: rgba(64, 163, 255, 0.4);
         color: white;
         cursor: pointer
     }
@@ -175,27 +177,25 @@
     .clock {
         color: white;
         font-size: 60px;
-        letter-spacing: 7px;
         font-weight: 500;
-        font-family: 'Orbitron', sans-serif;
+        font-family: 'Digital Numbers', sans-serif;                          
+        /* font-family: 'Orbitron', sans-serif; */
     }
 
     .clock-light {
         color: white;
         font-size: 60px;
-        letter-spacing: 7px;
         font-weight: 500;
-        font-family: 'Orbitron', sans-serif;
+        font-family: 'Digital Numbers', sans-serif;                                 
+        /* font-family: 'Orbitron', sans-serif; */
     }
 
-    /* Container styles */
     .scrolling-text-container {
         background-color: #eff5ff;
         border-radius: 4px;
         overflow: hidden;
     }
 
-    /* Inner container styles */
     .scrolling-text-inner {
         display: flex;
         white-space: nowrap;
@@ -204,7 +204,6 @@
         padding: 8px 0;
     }
 
-    /* Text styles */
     .scrolling-text {
         display: flex;
     }
@@ -213,17 +212,14 @@
         padding: 0 10px;
     }
 
-    /* Apply the animation to the text items */
     .scrolling-text-inner > div {
         animation: var(--direction) var(--marquee-speed) linear infinite;
     }
 
-    /* Pause the animation when a user hovers over it */
     .scrolling-text-container:hover .scrolling-text-inner > div {
         animation-play-state: paused;
     }
 
-    /* Setting the Animation using Keyframes */
     @keyframes scroll-left {
         0% {
             transform: translateX(0%);
@@ -275,79 +271,79 @@
     <div style="padding: 30px; padding-top: 10px;">
         <div class="row">
             <div class="col-md-3">
-                <div style="display: flex; justify-content: center; align-items: center; border: 1px solid #ccc; margin-bottom:30px">
+                <div style="display: flex; justify-content: center; align-items: center; border: 4px solid white; margin-bottom:30px">
                     <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
                 </div>
-                <div class="card" style="padding:20px">
-                <div id="employeeDetailsCarousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="card">
-                        <div class="d-flex justify-content-center">
-                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
+                <div style="padding:20px; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px;">
+                    <div id="employeeDetailsCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">IRFAN YUSTIAN</h5>
+                                    <p style="margin-top:-5px; font-size:16px;">Available</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">IWAN SETIAWAN</h5>
+                                    <p style="margin-top:-5px; font-size:16px;">Available</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">PARJIANTO</h5>
+                                    <p style="margin-top:-5px; font-size:16px;">Available</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">RIAN ABRIANTO</h5>
+                                    <p style="margin-top:-5px; font-size:16px;">Available</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">SADDAM ANDREANTO</h5>
+                                    <p style="margin-top:-5px; font-size:16px;">Available</p>
+                                </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">IRFAN YUSTIAN</h5>
-                            <p style="margin-top:-5px; font-size:16px;">Available</p>
-                        </div>
+                        <div style="display:none;">
+                        <a class="carousel-control-prev" href="#employeeDetailsCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#employeeDetailsCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                        <div class="d-flex justify-content-center">
-                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">IWAN SETIAWAN</h5>
-                            <p style="margin-top:-5px; font-size:16px;">Available</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                        <div class="d-flex justify-content-center">
-                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">PARJIANTO</h5>
-                            <p style="margin-top:-5px; font-size:16px;">Available</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                        <div class="d-flex justify-content-center">
-                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">RIAN ABRIANTO</h5>
-                            <p style="margin-top:-5px; font-size:16px;">Available</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                        <div class="d-flex justify-content-center">
-                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="margin-top:30px; width: 100px; height: 100px; object-fit: cover;">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">SADDAM ANDREANTO</h5>
-                            <p style="margin-top:-5px; font-size:16px;">Available</p>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div style="display:none;">
-                    <a class="carousel-control-prev" href="#employeeDetailsCarousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#employeeDetailsCarousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                    </div>
-                </div>
                 </div>
             </div>
             <div class="col-md-9">
@@ -356,7 +352,10 @@
                     <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
                         <div style="display: flex; align-items: center;">
                             <div style="flex: 0 0 70px; text-align: center;">
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" 
+                                    class="rounded-circle" 
+                                    alt="Profile Picture" 
+                                    style="width: 60px; height: 60px; border: 2px solid #d66d47d0;">
                             </div>
                             <div style="flex: 1; padding-left: 15px;">
                                 <div style="font-size: 18px; font-weight: bold;">
@@ -367,7 +366,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="position: absolute; top: 35px; right: 35px; font-size: 20px;">
                             <div style="flex: 1; text-align: right;">
                                 <div style="font-size: 17px;">
                                     34/PP/FIN/I/2025
@@ -377,7 +376,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="margin-top: 20px; border: 1px solid #d66d47d0; padding: 15px; border-radius: 5px;">
                             <div style="flex: 1;">
                                 <div style="font-size: 14px;">
                                     Permasalahan
@@ -387,7 +386,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="margin-top: 10px; border: 1px solid #d66d47d0; padding: 15px; border-radius: 5px;">
                             <div style="flex: 1;">
                                 <div style="font-size: 14px;">
                                     Tindakan Teknisi
@@ -397,8 +396,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
-                            <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; padding-top: 10px;">
+                            <div style="text-align: left; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         Status
@@ -408,7 +407,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: center; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         Start Time
@@ -418,7 +417,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: center; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         End Time
@@ -428,7 +427,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            <div style="text-align: right; font-size: 30px; border: 1px solid #d66d47d0; padding: 10px; padding-top: 12px; border-radius: 5px;">
                                 C.44
                             </div>
                         </div>
@@ -437,7 +436,10 @@
                     <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
                         <div style="display: flex; align-items: center;">
                             <div style="flex: 0 0 70px; text-align: center;">
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" 
+                                class="rounded-circle" 
+                                alt="Profile Picture" 
+                                style="width: 60px; height: 60px; border: 2px solid #C94B1C;">
                             </div>
                             <div style="flex: 1; padding-left: 15px;">
                                 <div style="font-size: 18px; font-weight: bold;">
@@ -448,7 +450,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; ">
                             <div style="flex: 1; text-align: right;">
                                 <div style="font-size: 17px;">
                                     34/PP/FIN/I/2025
@@ -458,7 +460,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="margin-top: 20px; border: 1px solid #d66d47d0; padding: 15px; border-radius: 5px;">
                             <div style="flex: 1;">
                                 <div style="font-size: 14px;">
                                     Permasalahan
@@ -468,7 +470,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="margin-top: 10px; border: 1px solid #d66d47d0; padding: 15px; border-radius: 5px;">
                             <div style="flex: 1;">
                                 <div style="font-size: 14px;">
                                     Tindakan Teknisi
@@ -479,7 +481,7 @@
                             </div>
                         </div>
                         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
-                            <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: left; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         Status
@@ -489,7 +491,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: center; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         Start Time
@@ -499,7 +501,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: center; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         End Time
@@ -509,7 +511,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            <div style="text-align: right; font-size: 30px; border: 1px solid #d66d47d0; padding: 10px; padding-top: 12px; border-radius: 5px;">
                                 C.44
                             </div>
                         </div>
@@ -518,7 +520,10 @@
                     <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
                         <div style="display: flex; align-items: center;">
                             <div style="flex: 0 0 70px; text-align: center;">
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" 
+                                class="rounded-circle" 
+                                alt="Profile Picture" 
+                                style="width: 60px; height: 60px; border: 2px solid #C94B1C;">
                             </div>
                             <div style="flex: 1; padding-left: 15px;">
                                 <div style="font-size: 18px; font-weight: bold;">
@@ -529,7 +534,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; ">
                             <div style="flex: 1; text-align: right;">
                                 <div style="font-size: 17px;">
                                     34/PP/FIN/I/2025
@@ -539,7 +544,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="margin-top: 20px; border: 1px solid #d66d47d0; padding: 15px; border-radius: 5px;">
                             <div style="flex: 1;">
                                 <div style="font-size: 14px;">
                                     Permasalahan
@@ -549,7 +554,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="margin-top: 10px; border: 1px solid #d66d47d0; padding: 15px; border-radius: 5px;">
                             <div style="flex: 1;">
                                 <div style="font-size: 14px;">
                                     Tindakan Teknisi
@@ -560,7 +565,7 @@
                             </div>
                         </div>
                         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
-                            <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: left; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         Status
@@ -570,7 +575,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: center; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         Start Time
@@ -580,7 +585,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: center; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         End Time
@@ -590,7 +595,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            <div style="text-align: right; font-size: 30px; border: 1px solid #d66d47d0; padding: 10px; padding-top: 12px; border-radius: 5px;">
                                 C.44
                             </div>
                         </div>
@@ -599,7 +604,10 @@
                     <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
                         <div style="display: flex; align-items: center;">
                             <div style="flex: 0 0 70px; text-align: center;">
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" 
+                                    class="rounded-circle" 
+                                    alt="Profile Picture" 
+                                    style="width: 60px; height: 60px; border: 2px solid #C94B1C;">
                             </div>
                             <div style="flex: 1; padding-left: 15px;">
                                 <div style="font-size: 18px; font-weight: bold;">
@@ -610,7 +618,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; ">
                             <div style="flex: 1; text-align: right;">
                                 <div style="font-size: 17px;">
                                     34/PP/FIN/I/2025
@@ -620,7 +628,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="margin-top: 20px; border: 1px solid #d66d47d0; padding: 15px; border-radius: 5px;">
                             <div style="flex: 1;">
                                 <div style="font-size: 14px;">
                                     Permasalahan
@@ -630,7 +638,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="margin-top: 10px; border: 1px solid #d66d47d0; padding: 15px; border-radius: 5px;">
                             <div style="flex: 1;">
                                 <div style="font-size: 14px;">
                                     Tindakan Teknisi
@@ -641,7 +649,7 @@
                             </div>
                         </div>
                         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
-                            <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: left; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         Status
@@ -651,7 +659,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: center; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         Start Time
@@ -661,7 +669,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: center; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         End Time
@@ -671,7 +679,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            <div style="text-align: right; font-size: 30px; border: 1px solid #d66d47d0; padding: 10px; padding-top: 12px; border-radius: 5px;">
                                 C.44
                             </div>
                         </div>
@@ -680,7 +688,10 @@
                     <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
                         <div style="display: flex; align-items: center;">
                             <div style="flex: 0 0 70px; text-align: center;">
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" 
+                                class="rounded-circle" 
+                                alt="Profile Picture" 
+                                style="width: 60px; height: 60px; border: 2px solid #C94B1C;">
                             </div>
                             <div style="flex: 1; padding-left: 15px;">
                                 <div style="font-size: 18px; font-weight: bold;">
@@ -691,7 +702,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; ">
                             <div style="flex: 1; text-align: right;">
                                 <div style="font-size: 17px;">
                                     34/PP/FIN/I/2025
@@ -701,7 +712,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="margin-top: 20px; border: 1px solid #d66d47d0; padding: 15px; border-radius: 5px;">
                             <div style="flex: 1;">
                                 <div style="font-size: 14px;">
                                     Permasalahan
@@ -711,7 +722,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="margin-top: 10px; border: 1px solid #d66d47d0; padding: 15px; border-radius: 5px;">
                             <div style="flex: 1;">
                                 <div style="font-size: 14px;">
                                     Tindakan Teknisi
@@ -722,7 +733,7 @@
                             </div>
                         </div>
                         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
-                            <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: left; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         Status
@@ -732,7 +743,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: center; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         Start Time
@@ -742,7 +753,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="text-align: center; border: 1px solid #d66d47d0; padding: 10px; border-radius: 5px;">
                                 <div style="flex: 1;">
                                     <div style="font-size: 14px;">
                                         End Time
@@ -752,7 +763,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            <div style="text-align: right; font-size: 30px; border: 1px solid #d66d47d0; padding: 10px; padding-top: 12px; border-radius: 5px;">
                                 C.44
                             </div>
                         </div>
