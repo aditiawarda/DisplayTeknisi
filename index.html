@@ -130,14 +130,14 @@
     }
 
     .bg-blue:hover {
-        background-color: #ff6b3e;
+        background-color: #3469ad;
         color: white;
         cursor: pointer
     }
 
     .bg-blue:hover .fa-check,
     .bg-blue:hover .fa-minus {
-        background-color: #ff6b3e;
+        background-color: #3469ad;
         color: white;
     }
 
@@ -188,30 +188,6 @@
         font-family: 'Orbitron', sans-serif;
     }
 
-    span {
-        display: block;
-        width: 50px;
-        height: 50px;
-        animation: ripple 0.8s linear infinite;
-        border-radius: 50px;
-    }
-
-    /* ripple effect */
-    @keyframes ripple {
-        0% {
-            box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.1),
-                        0 0 0 5px rgba(255, 165, 0, 0.1),
-                        0 0 0 10px rgba(255, 165, 0, 0.1),
-                        0 0 0 20px rgba(255, 165, 0, 0.1);
-        }
-        100% {
-            box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.1),
-                        0 0 0 5px rgba(255, 165, 0, 0.1),
-                        0 0 0 10px rgba(255, 165, 0, 0.1),
-                        0 0 0 20px rgba(255, 165, 0, 0);
-        }
-    }
-
     /* Container styles */
     .scrolling-text-container {
         background-color: #eff5ff;
@@ -234,7 +210,7 @@
     }
 
     .scrolling-text-item {
-        padding: 0 30px;
+        padding: 0 10px;
     }
 
     /* Apply the animation to the text items */
@@ -371,210 +347,980 @@
       <div class="col-md-9">
         <div>
           <div>
-            <div style="margin-bottom: 10px; font-size: 14px; font-weight: 600;">
-                <table width="100%">
-                    <tr>
-                        <td width="35%">
-                            <div class="bg-col">
-                                KARYAWAN
+            <div class="data-table" style="display: block; max-height: 850px; overflow-y: auto; width: 100%; padding-right:15px">
+                
+                <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 0 0 70px; text-align: center;">
+                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                        </div>
+                        <div style="flex: 1; padding-left: 15px;">
+                            <div style="font-size: 18px; font-weight: bold;">
+                                ADITIA WARDANI
                             </div>
-                        </td>
-                        <td width="9.5%" align="center">
-                            <div class="bg-col" style="margin-left: 7px;">
-                                STATUS
+                            <div style="margin-top: 5px; font-size: 15px; margin-top: 0px;">
+                                3108150321
                             </div>
-                        </td>
-                        <td>
-                            <div class="bg-col" style="margin-left: 7px;">
-                                PEKERJAAN
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="flex: 1; text-align: right;">
+                            <div style="font-size: 17px;">
+                                34/PP/FIN/I/2025
                             </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>   
-            <div class="data-table" style="display: block; max-height: 800px; overflow-y: auto; width: 100%; padding-right:15px">
-                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
-                    <tr>
-                        <td width="3%" align="center" style="padding: 10px;">
-                            <span>
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 100px; height: 100px;">
-                            </span>
-                        </td>
-                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
-                            <b>Emilia Kollette</b>
-                        </td>
-                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
-                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
-                    </tr>
-                </table>
-                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
-                    <tr>
-                        <td width="3%" align="center" style="padding: 10px;">
-                            <span>
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
-                            </span>
-                        </td>
-                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
-                            <b>Emilia Kollette</b>
-                        </td>
-                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
-                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
-                    </tr>
-                </table>
-                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
-                    <tr>
-                        <td width="3%" align="center" style="padding: 10px;">
-                            <span>
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
-                            </span>
-                        </td>
-                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
-                            <b>Emilia Kollette</b>
-                        </td>
-                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
-                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
-                    </tr>
-                </table>
-                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
-                    <tr>
-                        <td width="3%" align="center" style="padding: 10px;">
-                            <span>
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
-                            </span>
-                        </td>
-                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
-                            <b>Emilia Kollette</b>
-                        </td>
-                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
-                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
-                    </tr>
-                </table>
-                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
-                    <tr>
-                        <td width="3%" align="center" style="padding: 10px;">
-                            <span>
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
-                            </span>
-                        </td>
-                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
-                            <b>Emilia Kollette</b>
-                        </td>
-                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
-                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
-                    </tr>
-                </table>
-                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
-                    <tr>
-                        <td width="3%" align="center" style="padding: 10px;">
-                            <span>
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
-                            </span>
-                        </td>
-                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
-                            <b>Emilia Kollette</b>
-                        </td>
-                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
-                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
-                    </tr>
-                </table>
-                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
-                    <tr>
-                        <td width="3%" align="center" style="padding: 10px;">
-                            <span>
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
-                            </span>
-                        </td>
-                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
-                            <b>Emilia Kollette</b>
-                        </td>
-                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
-                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
-                    </tr>
-                </table>
-                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
-                    <tr>
-                        <td width="3%" align="center" style="padding: 10px;">
-                            <span>
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
-                            </span>
-                        </td>
-                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
-                            <b>Emilia Kollette</b>
-                        </td>
-                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
-                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
-                    </tr>
-                </table>
-                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
-                    <tr>
-                        <td width="3%" align="center" style="padding: 10px;">
-                            <span>
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
-                            </span>
-                        </td>
-                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
-                            <b>Emilia Kollette</b>
-                        </td>
-                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
-                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
-                    </tr>
-                </table>
-                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
-                    <tr>
-                        <td width="3%" align="center" style="padding: 10px;">
-                            <span>
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
-                            </span>
-                        </td>
-                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
-                            <b>Emilia Kollette</b>
-                        </td>
-                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
-                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
-                    </tr>
-                </table>
-                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
-                    <tr>
-                        <td width="3%" align="center" style="padding: 10px;">
-                            <span>
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
-                            </span>
-                        </td>
-                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
-                            <b>Emilia Kollette</b>
-                        </td>
-                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
-                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
-                    </tr>
-                </table>
-                <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
-                    <tr>
-                        <td width="3%" align="center" style="padding: 10px;">
-                            <span>
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
-                            </span>
-                        </td>
-                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
-                            <b>Emilia Kollette</b>
-                        </td>
-                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
-                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
-                    </tr>
-                </table>
-                 <table width="100%" class="bg-blue" style="margin-bottom: 10px; padding:10px">
-                    <tr>
-                        <td width="3%" align="center" style="padding: 10px;">
-                            <span>
-                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="" style="width: 50px; height: 50px;">
-                            </span>
-                        </td>
-                        <td width="23%" align="left" style="padding: 3px; padding-left: 10px; padding-right: 10px; font-size: 20px;">
-                            <b>Emilia Kollette</b>
-                        </td>
-                        <td width="5%" align="center" style="padding: 3px; padding-left: 10px; padding-right: 10px;">PROCESS</td>
-                        <td width="42%" align="left" style="padding: 3px; padding-left: 25px; padding-right: 10px;">Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s Bore up mesin solna 8 jadi 10000 sheet/s</td>
-                    </tr>
-                </table>
+                            <div style="margin-top: 5px; font-size: 13px; margin-top: -3px;">
+                                FINISHING
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Permasalahan
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Dinamo mengeluarkan suara kasar (keras)
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Tindakan Teknisi
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Pengecekan problem Pulley Kompresor mesin pack lepas, bongkar dan perbaiki pengunci pulley, set kembali dan seting v belt, tes ok monitoring
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+                        <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Status
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    PROSES
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Start Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    16/01/2025 10:00:00
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    End Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    - - /- - / - - - -  - - : - - : - -
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            C.44
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 0 0 70px; text-align: center;">
+                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                        </div>
+                        <div style="flex: 1; padding-left: 15px;">
+                            <div style="font-size: 18px; font-weight: bold;">
+                                ADITIA WARDANI
+                            </div>
+                            <div style="margin-top: 5px; font-size: 15px; margin-top: 0px;">
+                                3108150321
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="flex: 1; text-align: right;">
+                            <div style="font-size: 17px;">
+                                34/PP/FIN/I/2025
+                            </div>
+                            <div style="margin-top: 5px; font-size: 13px; margin-top: -3px;">
+                                FINISHING
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Permasalahan
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Dinamo mengeluarkan suara kasar (keras)
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Tindakan Teknisi
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Pengecekan problem Pulley Kompresor mesin pack lepas, bongkar dan perbaiki pengunci pulley, set kembali dan seting v belt, tes ok monitoring
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+                        <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Status
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    PROSES
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Start Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    16/01/2025 10:00:00
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    End Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    - - /- - / - - - -  - - : - - : - -
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            C.44
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 0 0 70px; text-align: center;">
+                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                        </div>
+                        <div style="flex: 1; padding-left: 15px;">
+                            <div style="font-size: 18px; font-weight: bold;">
+                                ADITIA WARDANI
+                            </div>
+                            <div style="margin-top: 5px; font-size: 15px; margin-top: 0px;">
+                                3108150321
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="flex: 1; text-align: right;">
+                            <div style="font-size: 17px;">
+                                34/PP/FIN/I/2025
+                            </div>
+                            <div style="margin-top: 5px; font-size: 13px; margin-top: -3px;">
+                                FINISHING
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Permasalahan
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Dinamo mengeluarkan suara kasar (keras)
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Tindakan Teknisi
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Pengecekan problem Pulley Kompresor mesin pack lepas, bongkar dan perbaiki pengunci pulley, set kembali dan seting v belt, tes ok monitoring
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+                        <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Status
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    PROSES
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Start Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    16/01/2025 10:00:00
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    End Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    - - /- - / - - - -  - - : - - : - -
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            C.44
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 0 0 70px; text-align: center;">
+                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                        </div>
+                        <div style="flex: 1; padding-left: 15px;">
+                            <div style="font-size: 18px; font-weight: bold;">
+                                ADITIA WARDANI
+                            </div>
+                            <div style="margin-top: 5px; font-size: 15px; margin-top: 0px;">
+                                3108150321
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="flex: 1; text-align: right;">
+                            <div style="font-size: 17px;">
+                                34/PP/FIN/I/2025
+                            </div>
+                            <div style="margin-top: 5px; font-size: 13px; margin-top: -3px;">
+                                FINISHING
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Permasalahan
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Dinamo mengeluarkan suara kasar (keras)
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Tindakan Teknisi
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Pengecekan problem Pulley Kompresor mesin pack lepas, bongkar dan perbaiki pengunci pulley, set kembali dan seting v belt, tes ok monitoring
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+                        <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Status
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    PROSES
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Start Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    16/01/2025 10:00:00
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    End Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    - - /- - / - - - -  - - : - - : - -
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            C.44
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 0 0 70px; text-align: center;">
+                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                        </div>
+                        <div style="flex: 1; padding-left: 15px;">
+                            <div style="font-size: 18px; font-weight: bold;">
+                                ADITIA WARDANI
+                            </div>
+                            <div style="margin-top: 5px; font-size: 15px; margin-top: 0px;">
+                                3108150321
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="flex: 1; text-align: right;">
+                            <div style="font-size: 17px;">
+                                34/PP/FIN/I/2025
+                            </div>
+                            <div style="margin-top: 5px; font-size: 13px; margin-top: -3px;">
+                                FINISHING
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Permasalahan
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Dinamo mengeluarkan suara kasar (keras)
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Tindakan Teknisi
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Pengecekan problem Pulley Kompresor mesin pack lepas, bongkar dan perbaiki pengunci pulley, set kembali dan seting v belt, tes ok monitoring
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+                        <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Status
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    PROSES
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Start Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    16/01/2025 10:00:00
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    End Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    - - /- - / - - - -  - - : - - : - -
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            C.44
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 0 0 70px; text-align: center;">
+                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                        </div>
+                        <div style="flex: 1; padding-left: 15px;">
+                            <div style="font-size: 18px; font-weight: bold;">
+                                ADITIA WARDANI
+                            </div>
+                            <div style="margin-top: 5px; font-size: 15px; margin-top: 0px;">
+                                3108150321
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="flex: 1; text-align: right;">
+                            <div style="font-size: 17px;">
+                                34/PP/FIN/I/2025
+                            </div>
+                            <div style="margin-top: 5px; font-size: 13px; margin-top: -3px;">
+                                FINISHING
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Permasalahan
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Dinamo mengeluarkan suara kasar (keras)
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Tindakan Teknisi
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Pengecekan problem Pulley Kompresor mesin pack lepas, bongkar dan perbaiki pengunci pulley, set kembali dan seting v belt, tes ok monitoring
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+                        <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Status
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    PROSES
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Start Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    16/01/2025 10:00:00
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    End Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    - - /- - / - - - -  - - : - - : - -
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            C.44
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 0 0 70px; text-align: center;">
+                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                        </div>
+                        <div style="flex: 1; padding-left: 15px;">
+                            <div style="font-size: 18px; font-weight: bold;">
+                                ADITIA WARDANI
+                            </div>
+                            <div style="margin-top: 5px; font-size: 15px; margin-top: 0px;">
+                                3108150321
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="flex: 1; text-align: right;">
+                            <div style="font-size: 17px;">
+                                34/PP/FIN/I/2025
+                            </div>
+                            <div style="margin-top: 5px; font-size: 13px; margin-top: -3px;">
+                                FINISHING
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Permasalahan
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Dinamo mengeluarkan suara kasar (keras)
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Tindakan Teknisi
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Pengecekan problem Pulley Kompresor mesin pack lepas, bongkar dan perbaiki pengunci pulley, set kembali dan seting v belt, tes ok monitoring
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+                        <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Status
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    PROSES
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Start Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    16/01/2025 10:00:00
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    End Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    - - /- - / - - - -  - - : - - : - -
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            C.44
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 0 0 70px; text-align: center;">
+                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                        </div>
+                        <div style="flex: 1; padding-left: 15px;">
+                            <div style="font-size: 18px; font-weight: bold;">
+                                ADITIA WARDANI
+                            </div>
+                            <div style="margin-top: 5px; font-size: 15px; margin-top: 0px;">
+                                3108150321
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="flex: 1; text-align: right;">
+                            <div style="font-size: 17px;">
+                                34/PP/FIN/I/2025
+                            </div>
+                            <div style="margin-top: 5px; font-size: 13px; margin-top: -3px;">
+                                FINISHING
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Permasalahan
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Dinamo mengeluarkan suara kasar (keras)
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Tindakan Teknisi
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Pengecekan problem Pulley Kompresor mesin pack lepas, bongkar dan perbaiki pengunci pulley, set kembali dan seting v belt, tes ok monitoring
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+                        <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Status
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    PROSES
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Start Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    16/01/2025 10:00:00
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    End Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    - - /- - / - - - -  - - : - - : - -
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            C.44
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 0 0 70px; text-align: center;">
+                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                        </div>
+                        <div style="flex: 1; padding-left: 15px;">
+                            <div style="font-size: 18px; font-weight: bold;">
+                                ADITIA WARDANI
+                            </div>
+                            <div style="margin-top: 5px; font-size: 15px; margin-top: 0px;">
+                                3108150321
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="flex: 1; text-align: right;">
+                            <div style="font-size: 17px;">
+                                34/PP/FIN/I/2025
+                            </div>
+                            <div style="margin-top: 5px; font-size: 13px; margin-top: -3px;">
+                                FINISHING
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Permasalahan
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Dinamo mengeluarkan suara kasar (keras)
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Tindakan Teknisi
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Pengecekan problem Pulley Kompresor mesin pack lepas, bongkar dan perbaiki pengunci pulley, set kembali dan seting v belt, tes ok monitoring
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+                        <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Status
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    PROSES
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Start Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    16/01/2025 10:00:00
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    End Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    - - /- - / - - - -  - - : - - : - -
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            C.44
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 0 0 70px; text-align: center;">
+                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                        </div>
+                        <div style="flex: 1; padding-left: 15px;">
+                            <div style="font-size: 18px; font-weight: bold;">
+                                ADITIA WARDANI
+                            </div>
+                            <div style="margin-top: 5px; font-size: 15px; margin-top: 0px;">
+                                3108150321
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="flex: 1; text-align: right;">
+                            <div style="font-size: 17px;">
+                                34/PP/FIN/I/2025
+                            </div>
+                            <div style="margin-top: 5px; font-size: 13px; margin-top: -3px;">
+                                FINISHING
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Permasalahan
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Dinamo mengeluarkan suara kasar (keras)
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Tindakan Teknisi
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Pengecekan problem Pulley Kompresor mesin pack lepas, bongkar dan perbaiki pengunci pulley, set kembali dan seting v belt, tes ok monitoring
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+                        <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Status
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    PROSES
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Start Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    16/01/2025 10:00:00
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    End Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    - - /- - / - - - -  - - : - - : - -
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            C.44
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 0 0 70px; text-align: center;">
+                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                        </div>
+                        <div style="flex: 1; padding-left: 15px;">
+                            <div style="font-size: 18px; font-weight: bold;">
+                                ADITIA WARDANI
+                            </div>
+                            <div style="margin-top: 5px; font-size: 15px; margin-top: 0px;">
+                                3108150321
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="flex: 1; text-align: right;">
+                            <div style="font-size: 17px;">
+                                34/PP/FIN/I/2025
+                            </div>
+                            <div style="margin-top: 5px; font-size: 13px; margin-top: -3px;">
+                                FINISHING
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Permasalahan
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Dinamo mengeluarkan suara kasar (keras)
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Tindakan Teknisi
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Pengecekan problem Pulley Kompresor mesin pack lepas, bongkar dan perbaiki pengunci pulley, set kembali dan seting v belt, tes ok monitoring
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+                        <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Status
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    PROSES
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Start Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    16/01/2025 10:00:00
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    End Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    - - /- - / - - - -  - - : - - : - -
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            C.44
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex: 0 0 70px; text-align: center;">
+                            <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="Profile Picture" style="width: 60px; height: 60px;">
+                        </div>
+                        <div style="flex: 1; padding-left: 15px;">
+                            <div style="font-size: 18px; font-weight: bold;">
+                                ADITIA WARDANI
+                            </div>
+                            <div style="margin-top: 5px; font-size: 15px; margin-top: 0px;">
+                                3108150321
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 35px; right: 35px; font-size: 20px; color: #333;">
+                        <div style="flex: 1; text-align: right;">
+                            <div style="font-size: 17px;">
+                                34/PP/FIN/I/2025
+                            </div>
+                            <div style="margin-top: 5px; font-size: 13px; margin-top: -3px;">
+                                FINISHING
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Permasalahan
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Dinamo mengeluarkan suara kasar (keras)
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; border: 1px solid #ddd; padding: 15px; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px;">
+                                Tindakan Teknisi
+                            </div>
+                            <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                Pengecekan problem Pulley Kompresor mesin pack lepas, bongkar dan perbaiki pengunci pulley, set kembali dan seting v belt, tes ok monitoring
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+                        <div style="text-align: left; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Status
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    PROSES
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    Start Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    16/01/2025 10:00:00
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 14px;">
+                                    End Time
+                                </div>
+                                <div style="margin-top: 5px; font-size: 20px; margin-top: -3px;">
+                                    - - /- - / - - - -  - - : - - : - -
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; font-size: 30px; border: 1px solid #ddd; padding: 10px; padding-top: 12px; border-radius: 5px;">
+                            C.44
+                        </div>
+                    </div>
+                </div>
+
             </div>   
           </div>
         </div>
@@ -586,18 +1332,38 @@
             <div class="scrolling-text-container">
                 <div class="scrolling-text-inner" style="--marquee-speed: 20s; --direction:scroll-left" role="marquee">
                     <div class="scrolling-text">
-                        <div class="scrolling-text-item">PROFESSIONALISM</div>
-                        <div class="scrolling-text-item">INTEGRITY</div>
-                        <div class="scrolling-text-item">CONTINOUS IMPROVEMENT</div>
-                        <div class="scrolling-text-item">SERVICE EXCELLENCE</div>
-                        <div class="scrolling-text-item">PASSION</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;PROFESSIONALISM</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;INTEGRITY</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;CONTINOUS IMPROVEMENT</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;SERVICE EXCELLENCE</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;PASSION</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;PROFESSIONALISM</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;INTEGRITY</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;CONTINOUS IMPROVEMENT</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;SERVICE EXCELLENCE</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;PASSION</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;PROFESSIONALISM</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;INTEGRITY</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;CONTINOUS IMPROVEMENT</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;SERVICE EXCELLENCE</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;PASSION</div>
                     </div>
                     <div class="scrolling-text">
-                        <div class="scrolling-text-item">PROFESSIONALISM</div>
-                        <div class="scrolling-text-item">INTEGRITY</div>
-                        <div class="scrolling-text-item">CONTINOUS IMPROVEMENT</div>
-                        <div class="scrolling-text-item">SERVICE EXCELLENCE</div>
-                        <div class="scrolling-text-item">PASSION</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;PROFESSIONALISM</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;INTEGRITY</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;CONTINOUS IMPROVEMENT</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;SERVICE EXCELLENCE</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;PASSION</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;PROFESSIONALISM</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;INTEGRITY</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;CONTINOUS IMPROVEMENT</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;SERVICE EXCELLENCE</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;PASSION</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;PROFESSIONALISM</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;INTEGRITY</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;CONTINOUS IMPROVEMENT</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;SERVICE EXCELLENCE</div>
+                        <div class="scrolling-text-item"> • &nbsp;&nbsp;&nbsp;&nbsp;PASSION</div>
                     </div>
                 </div>
             </div>
@@ -618,27 +1384,32 @@
         $('.card').toggleClass('bg-secondary text-white');
         $('.clock').toggleClass('color text-white');
         $('.td').toggleClass('color text-black');
-        
       });
     });
 
     var $el = $(".data-table");
+
     function anim() {
         var st = $el.scrollTop();
-        var sb = $el.prop("scrollHeight")-$el.innerHeight();
-        $el.animate({scrollTop: st<sb/2 ? sb : 0}, 30000, anim);
+        var sb = $el.prop("scrollHeight") - $el.innerHeight();
+        var dataCount = $el.children().length;
+        console.log(dataCount);
+        var scrollSpeed = Math.max(100000, dataCount * 100);
+        $el.animate({scrollTop: st < sb / 2 ? sb : 0}, scrollSpeed, anim);
     }
-    function stop(){
+
+    function stop() {
         $el.stop();
     }
+
     anim();
     $el.hover(stop, anim);
 
     function showTime(){
         var date = new Date();
-        var h = date.getHours(); // 0 - 23
-        var m = date.getMinutes(); // 0 - 59
-        var s = date.getSeconds(); // 0 - 59
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
         
         h = (h < 10) ? "0" + h : h;
         m = (m < 10) ? "0" + m : m;
@@ -652,22 +1423,6 @@
     }
 
     showTime();
-
-    const container = document.querySelector('.scrolling-text');
-const clone = document.querySelector('.clone-text');
-let scrollAmount = 0;
-
-setInterval(() => {
-    scrollAmount += 2; // Kecepatan scroll
-    container.scrollLeft = scrollAmount;
-
-    // Jika teks pertama sudah habis, reset ke posisi awal untuk menciptakan efek loop
-    if (scrollAmount >= clone.offsetWidth) {
-        scrollAmount = 0;
-    }
-}, 20);
-
-
 
   </script>
 </body>
