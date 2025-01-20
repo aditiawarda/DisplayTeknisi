@@ -467,7 +467,9 @@
                         </div>
                     </div>
                 </div>
-                
+                <div style="margin-top: 1.1vw; font-size: 0.8vw; color:white; font-weight: bold;">
+                    &copy; &nbsp;IT DEVELOPMENT 2025
+                </div>
             </div>
             <div class="col-md-9">
                 <div class="data-table" style="display: block; max-height: 87.3vh; overflow-y: auto; width: 100%; padding-right: 15px; padding-top: 20px; padding-bottom: 28px;">
@@ -749,7 +751,6 @@
             .then(data => {
                 const users = data.data;
                 const carouselContainer = document.querySelector('.carousel-inner');
-                carouselContainer.innerHTML = '';
 
                 users.forEach(user => {
                     const avatarUrl = user.avatar 
@@ -764,12 +765,15 @@
                                         <span></span><span></span><span></span><span></span>
                                         <div class="content">
                                             <div class="d-flex justify-content-center">
-                                                <img src="${avatarUrl}" class="rounded-circle" alt="User Image" style="width: 5.5vw; height: 5.5vw; object-fit: cover; border: 2px solid gray;">
+                                                <img src="${avatarUrl}" class="rounded-circle" alt="User Image" style="width: 5.5vw; height: 5.5vw; object-fit: cover; border: 2px solid gray; margin-top:0.3vw">
                                             </div>
                                             <div class="text-center">
                                                 <h6 style="font-weight: bold; font-size: 0.8vw; margin-top: 1.3vh;">
                                                     ${user.nama_user.toUpperCase()}
                                                 </h6>
+                                            </div>
+                                            <div class="fixed-bottom">
+                                                <div style="width: 100%; height: 2vw; background-color: rgba(0, 128, 0, 0.2); border-top-right-radius: 50px; border-top-left-radius: 50px;"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -788,10 +792,11 @@
             });
     }
 
-
+    const carouselContainer = document.querySelector('.carousel-inner');
     setInterval(() => {
         liveTask();
-        // availableSDM();
+        carouselContainer.innerHTML = '';
+        availableSDM()
     }, 60000);
   </script>
 </body>
