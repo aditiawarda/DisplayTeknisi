@@ -484,7 +484,7 @@
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px;">
                     <div style="text-align: center; border: 3px solid white; border-radius: 5px; padding: 10px; color: white;">
                         <div style="flex: 1;">
-                            <div style="font-size: 14px; font-weight: bold; letter-spacing: 3px; font-size: 15px; margin-top: 3px;">
+                            <div style="font-size: 14px; font-weight: bold; letter-spacing: 3px; font-size: 1vw; margin-top: 3px;">
                                 TOTAL SDM
                             </div>
                             <hr style="background-color: white; height: 2px; margin-top: 10px;">
@@ -495,12 +495,12 @@
                     </div>
                     <div style="text-align: center; border: 3px solid white; border-radius: 5px; padding: 10px; color: white;">
                         <div style="flex: 1;">
-                            <div style="font-size: 14px; font-weight: bold; letter-spacing: 3px; font-size: 15px; margin-top: 3px;">
+                            <div style="font-size: 14px; font-weight: bold; letter-spacing: 3px; font-size: 1vw; margin-top: 3px;">
                                 HADIR
                             </div>
                             <hr style="background-color: white; height: 2px; margin-top: 10px;">
-                            <div style="margin-top: 5px; font-size: 4vw; margin-top: -15px; font-family:'Digital Numbers', sans-serif; ">
-                                15
+                            <div id="jumlah-hadir" style="margin-top: 5px; font-size: 4vw; margin-top: -15px; font-family:'Digital Numbers', sans-serif; ">
+                                00
                             </div>
                         </div>
                     </div>
@@ -1013,6 +1013,7 @@
     // Start Runner
     showTime();
     totalSDM();
+    totalHadir();
     // End Runner
 
     function showTime(){
@@ -1041,6 +1042,24 @@
             console.log('Success:', data);
             console.log('Total SDM:', data.total_sdm);
             document.getElementById('jumlah-sdm').textContent = data.total_sdm;
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+    }
+
+    function totalHadir(){
+        fetch('https://hrisgelora.co.id/api/jumlah_hadir_teknik')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Success:', data);
+            console.log('Total Hadir:', data.total_hadir);
+            document.getElementById('jumlah-hadir').textContent = data.total_hadir;
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
