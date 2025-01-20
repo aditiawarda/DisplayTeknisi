@@ -748,7 +748,7 @@
             })
             .then(data => {
                 const users = data.data;
-                const carouselContainer = document.querySelector('.carousel-inner'); // Ensure you have a carousel-inner class
+                const carouselContainer = document.querySelector('.carousel-inner');
                 carouselContainer.innerHTML = '';
 
                 users.forEach(user => {
