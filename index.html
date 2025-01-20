@@ -544,7 +544,7 @@
         var sb = $el.prop("scrollHeight") - $el.innerHeight();
         var dataCount = $el.children().length;
         console.log(dataCount);
-        var scrollSpeed = Math.max(40000, dataCount * 100);
+        var scrollSpeed = Math.max(60000, dataCount * 100);
         $el.animate({scrollTop: st < sb / 2 ? sb : 0}, scrollSpeed, anim);
     }
 
@@ -784,8 +784,6 @@
 
                     carouselContainer.insertAdjacentHTML('beforeend', userHTML);
                 });
-
-                console.log("Test");
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
@@ -796,7 +794,8 @@
     setInterval(() => {
         liveTask();
         carouselContainer.innerHTML = '';
-        availableSDM()
+        availableSDM();
+        totalHadir();
     }, 60000);
   </script>
 </body>
