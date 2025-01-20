@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=1024">
 
   <title>Live Task Display</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/digital-numbers" rel="stylesheet">
-                
+  <link href="https://fonts.cdnfonts.com/css/digital-numbers" rel="stylesheet">   
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&family=Poppins:wght@600&display=swap');
@@ -430,26 +428,7 @@
                 <div class="border-dashed-rotate-animation" style="padding:0.3vw; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; margin-top: -37px; padding-top: 1.1vw;">
                     <div id="employeeDetailsCarousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="container">
-                                    <div class="background-img">
-                                        <div class="box">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <div class="content">
-                                            <div class="d-flex justify-content-center">
-                                                <img src="https://hrisgelora.co.id/upload/avatar/default_profile.jpg" class="rounded-circle" alt="User Image" style="width: 5vw; height: 5vw; object-fit: cover;">
-                                            </div>
-                                            <div class="text-center">
-                                                <h6 style="font-weight: bold; font-size: 0.7vw; margin-top: 1vh;">PARJIANTO AWARD NASUTION</h6>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </div>
                         <div style="display:none;">
                         <a class="carousel-control-prev" href="#employeeDetailsCarousel" role="button" data-slide="prev">
@@ -579,6 +558,7 @@
     totalSDM();
     totalHadir();
     liveTask();
+    availableSDM();
     // End Runner
 
     function showTime(){
@@ -758,6 +738,61 @@
         });
     }
 
+    function availableSDM() {
+        fetch('https://family.geloraaksara.co.id/gap-f/api/available_teknisi')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const users = data.data;
+                const carouselContainer = document.querySelector('.carousel-inner'); // Ensure you have a carousel-inner class
+                carouselContainer.innerHTML = '';
+
+                users.forEach(user => {
+                    const avatarUrl = user.avatar 
+                        ? `https://hrisgelora.co.id/upload/avatar/${user.avatar}` 
+                        : 'https://hrisgelora.co.id/upload/avatar/default_profile.jpg';
+                    
+                    const userHTML = `
+                        <div class="carousel-item${users.indexOf(user) === 0 ? ' active' : ''}">
+                            <div class="container">
+                                <div class="background-img">
+                                    <div class="box">
+                                        <span></span><span></span><span></span><span></span>
+                                        <div class="content">
+                                            <div class="d-flex justify-content-center">
+                                                <img src="${avatarUrl}" class="rounded-circle" alt="User Image" style="width: 5.5vw; height: 5.5vw; object-fit: cover; border: 2px solid gray;">
+                                            </div>
+                                            <div class="text-center">
+                                                <h6 style="font-weight: bold; font-size: 0.8vw; margin-top: 1.3vh;">
+                                                    ${user.nama_user.toUpperCase()}
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    carouselContainer.insertAdjacentHTML('beforeend', userHTML);
+                });
+
+                console.log("Test");
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    }
+
+
+    setInterval(() => {
+        liveTask();
+        // availableSDM();
+    }, 60000);
   </script>
 </body>
 </html>
