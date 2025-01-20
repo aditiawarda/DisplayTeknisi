@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1024">
+
   <title>Live Task Display</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
@@ -489,7 +491,7 @@
                 
             </div>
             <div class="col-md-9">
-                <div class="data-table" style="display: block; max-height: 87.3vh; overflow-y: auto; width: 100%; padding-right: 15px; padding-top: 25px; padding-bottom: 28px;">
+                <div class="data-table" style="display: block; max-height: 87.3vh; overflow-y: auto; width: 100%; padding-right: 15px; padding-top: 20px; padding-bottom: 28px;">
                     <div id="taskContainer"></div>
                 </div>   
             </div>
@@ -561,7 +563,7 @@
         var sb = $el.prop("scrollHeight") - $el.innerHeight();
         var dataCount = $el.children().length;
         console.log(dataCount);
-        var scrollSpeed = Math.max(20000, dataCount * 100);
+        var scrollSpeed = Math.max(40000, dataCount * 100);
         $el.animate({scrollTop: st < sb / 2 ? sb : 0}, scrollSpeed, anim);
     }
 
@@ -657,7 +659,7 @@
                 const formattedStartDateTime = `${formattedDate} ${item.jam_mulai}`;
 
                 const taskElement = `
-                    <div class="bg-blue" style="width: 100%; margin-bottom: 10px; padding: 1vw; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
+                    <div class="bg-blue" style="width: 100%; margin-bottom: 0.5vw; padding: 1vw; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
                         <div style="display: flex; align-items: center;">
                             <div style="flex: 0 0 5vw; text-align: center;">
                                 <img src="${fotoProfil}" 
