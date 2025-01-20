@@ -488,8 +488,8 @@
                                 TOTAL SDM
                             </div>
                             <hr style="background-color: white; height: 2px; margin-top: 10px;">
-                            <div style="margin-top: 5px; font-size: 4vw; margin-top: -15px; font-family:'Digital Numbers', sans-serif;">
-                                25
+                            <div id="jumlah-sdm" style="margin-top: 5px; font-size: 4vw; margin-top: -15px; font-family:'Digital Numbers', sans-serif;">
+                                00
                             </div>
                         </div>
                     </div>
@@ -1010,24 +1010,42 @@
     anim();
     $el.hover(stop, anim);
 
+    // Start Runner
+    showTime();
+    totalSDM();
+    // End Runner
+
     function showTime(){
         var date = new Date();
         var h = date.getHours();
         var m = date.getMinutes();
         var s = date.getSeconds();
-        
         h = (h < 10) ? "0" + h : h;
         m = (m < 10) ? "0" + m : m;
         s = (s < 10) ? "0" + s : s;
-        
         var time = h + ":" + m + ":" + s;
         document.getElementById("MyClockDisplay").innerText = time;
         document.getElementById("MyClockDisplay").textContent = time;
-        
         setTimeout(showTime, 1000);
     }
 
-    showTime();
+    function totalSDM(){
+        fetch('http://10.3.0.2:81/gap-f/api/jumlah_sdm')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Success:', data);
+            console.log('Total SDM:', data.total_sdm);
+            document.getElementById('jumlah-sdm').textContent = data.total_sdm;
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+    }
 
   </script>
 </body>
