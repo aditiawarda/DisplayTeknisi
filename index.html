@@ -522,226 +522,63 @@
         </div>
     </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-  <script>
-    $(document).ready(function() {
-      $('#darkModeSwitch').on('change', function() {
-        $('body').toggleClass('bg-dark text-white');
-        $('.card').toggleClass('bg-secondary text-white');
-        $('.clock').toggleClass('color text-white');
-        $('.td').toggleClass('color text-black');
-      });
-    });
-
-    var $el = $(".data-table");
-
-    function anim() {
-        var st = $el.scrollTop();
-        var sb = $el.prop("scrollHeight") - $el.innerHeight();
-        var dataCount = $el.children().length;
-        console.log(dataCount);
-        var scrollSpeed = Math.max(60000, dataCount * 100);
-        $el.animate({scrollTop: st < sb / 2 ? sb : 0}, scrollSpeed, anim);
-    }
-
-    function stop() {
-        $el.stop();
-    }
-
-    anim();
-    $el.hover(stop, anim);
-
-    // Start Runner
-    showTime();
-    totalSDM();
-    totalHadir();
-    liveTask();
-    availableSDM();
-    // End Runner
-
-    function showTime(){
-        var date = new Date();
-        var h = date.getHours();
-        var m = date.getMinutes();
-        var s = date.getSeconds();
-        h = (h < 10) ? "0" + h : h;
-        m = (m < 10) ? "0" + m : m;
-        s = (s < 10) ? "0" + s : s;
-        var time = h + ":" + m + ":" + s;
-        document.getElementById("MyClockDisplay").innerText = time;
-        document.getElementById("MyClockDisplay").textContent = time;
-        setTimeout(showTime, 1000);
-    }
-
-    function totalSDM(){
-        fetch('https://family.geloraaksara.co.id/gap-f/api/jumlah_sdm_teknik')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Success:', data);
-            console.log('Total SDM:', data.total_sdm);
-            document.getElementById('jumlah-sdm').textContent = data.total_sdm;
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
+    <script>
+        $(document).ready(function() {
+        $('#darkModeSwitch').on('change', function() {
+            $('body').toggleClass('bg-dark text-white');
+            $('.card').toggleClass('bg-secondary text-white');
+            $('.clock').toggleClass('color text-white');
+            $('.td').toggleClass('color text-black');
         });
-    }
-
-    function totalHadir(){
-        fetch('https://hrisgelora.co.id/api/jumlah_hadir_teknik')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Success:', data);
-            console.log('Total Hadir:', data.total_hadir);
-            document.getElementById('jumlah-hadir').textContent = data.total_hadir;
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
         });
-    }
 
-    function liveTask() {
-        fetch('https://family.geloraaksara.co.id/gap-f/api/live_task_teknik')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(responseData => {
-            console.log(responseData);
-            const data = responseData.data;
-            
-            if (!Array.isArray(data)) {
-                console.error('Expected an array but got:', data);
-                return;
-            }
+        var $el = $(".data-table");
 
-            const container = document.getElementById('taskContainer');
-            container.innerHTML = ''; 
+        function anim() {
+            var st = $el.scrollTop();
+            var sb = $el.prop("scrollHeight") - $el.innerHeight();
+            var dataCount = $el.children().length;
+            console.log(dataCount);
+            var scrollSpeed = Math.max(60000, dataCount * 100);
+            $el.animate({scrollTop: st < sb / 2 ? sb : 0}, scrollSpeed, anim);
+        }
 
-            data.forEach(item => {
-                let fotoProfil = item.foto_profil ? `https://hrisgelora.co.id/upload/avatar/${item.foto_profil}` : 'https://hrisgelora.co.id/upload/avatar/default_profile.jpg';
-                const startDateTime = new Date(`${item.tgl_mulai}`);
-                const formattedDate = startDateTime.toLocaleDateString('id-ID', { day: '2-digit', month: '2-digit', year: 'numeric' });
+        function stop() {
+            $el.stop();
+        }
 
-                const formattedStartDateTime = `${formattedDate} ${item.jam_mulai}`;
+        anim();
+        $el.hover(stop, anim);
 
-                const taskElement = `
-                    <div class="bg-blue" style="width: 100%; margin-bottom: 0.5vw; padding: 1vw; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;">
-                        <div style="display: flex; align-items: center;">
-                            <div style="flex: 0 0 5vw; text-align: center;">
-                                <img src="${fotoProfil}" 
-                                    class="rounded-circle" 
-                                    alt="Profile Picture" 
-                                    style="width: 7vh; height: 7vh; border: 2px solid #d66d47d0;">
-                            </div>
-                            <div style="flex: 1; padding-left: 0.4vw;">
-                            <div style="font-size: 1vw; font-weight: bold; text-transform: uppercase;">
-                                    ${item.nama_teknisi}
-                                </div>
-                                <div style="margin-top: 5px; font-size: 0.8vw; margin-top: 0px;">
-                                    ${item.handler}
-                                </div>
-                            </div>
-                        </div>
-                        <div style="position: absolute; top: 1vw; right: 1vw; font-size: 20px;">
-                            <div style="flex: 1; text-align: right;">
-                                <div style="font-size: 1vw;">
-                                    ${item.no_permintaan}
-                                </div>
-                                <div style="margin-top: 5px; font-size: 0.8vw; margin-top: -3px;">
-                                    ${item.bagian}
-                                </div>
-                            </div>
-                        </div>
-                        <div style="margin-top: 1vw; border: 1px solid #d66d47d0; padding: 0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
-                            <div style="flex: 1;">
-                                <div style="font-size: 0.8vw;">
-                                    Permasalahan :
-                                </div>
-                                <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
-                                    ${item.masalah}
-                                </div>
-                            </div>
-                        </div>
-                        <div style="margin-top: 0.4vw; border: 1px solid #d66d47d0; padding:0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
-                            <div style="flex: 1;">
-                                <div style="font-size: 0.8vw;">
-                                    Tindakan Teknisi :
-                                </div>
-                                <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
-                                    ${item.tindakan_teknisi}
-                                </div>
-                            </div>
-                        </div>
-                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.3vw; padding-top: 0.4vw;">
-                            <div style="text-align: left; border: 1px solid #d66d47d0; padding: 0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
-                                <div style="flex: 1;">
-                                    <div style="font-size: 0.8vw;">
-                                        Status
-                                    </div>
-                                    <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
-                                        PROCESS
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="text-align: center; border: 1px solid #d66d47d0; padding:0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
-                                <div style="flex: 1;">
-                                    <div style="font-size: 0.8vw;">
-                                        Start Time
-                                    </div>
-                                    <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
-                                        ${formattedStartDateTime}
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="text-align: center; border: 1px solid #d66d47d0; padding:0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
-                                <div style="flex: 1;">
-                                    <div style="font-size: 0.8vw;">
-                                        End Time
-                                    </div>
-                                    <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
-                                        ${item.tgl_selesai || '--/--/----'} ${item.jam_selesai || '--:--:--'}
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="text-align: right; font-size: 0.9vw; border: 1px solid #d66d47d0; padding:0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
-                                <div style="flex: 1;">
-                                    <div style="font-size: 0.8vw;">
-                                        <b>${item.kode_mesin}</b>
-                                    </div>
-                                    <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
-                                        ${item.nama_mesin}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += taskElement;
-            });
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-    }
+        // Start Runner
+        showTime();
+        totalSDM();
+        totalHadir();
+        liveTask();
+        availableSDM();
+        // End Runner
 
-    function availableSDM() {
-        fetch('https://family.geloraaksara.co.id/gap-f/api/available_teknisi')
+        function showTime(){
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+            var time = h + ":" + m + ":" + s;
+            document.getElementById("MyClockDisplay").innerText = time;
+            document.getElementById("MyClockDisplay").textContent = time;
+            setTimeout(showTime, 1000);
+        }
+
+        function totalSDM(){
+            fetch('https://family.geloraaksara.co.id/gap-f/api/jumlah_sdm_teknik')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -749,54 +586,247 @@
                 return response.json();
             })
             .then(data => {
-                const users = data.data;
-                const carouselContainer = document.querySelector('.carousel-inner');
+                console.log('Success:', data);
+                console.log('Total SDM:', data.total_sdm);
+                document.getElementById('jumlah-sdm').textContent = data.total_sdm;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
 
-                users.forEach(user => {
-                    const avatarUrl = user.avatar 
-                        ? `https://hrisgelora.co.id/upload/avatar/${user.avatar}` 
-                        : 'https://hrisgelora.co.id/upload/avatar/default_profile.jpg';
-                    
-                    const userHTML = `
-                        <div class="carousel-item${users.indexOf(user) === 0 ? ' active' : ''}">
-                            <div class="container">
-                                <div class="background-img">
-                                    <div class="box">
-                                        <span></span><span></span><span></span><span></span>
-                                        <div class="content">
-                                            <div class="d-flex justify-content-center">
-                                                <img src="${avatarUrl}" class="rounded-circle" alt="User Image" style="width: 5.5vw; height: 5.5vw; object-fit: cover; border: 2px solid gray; margin-top:0.3vw">
-                                            </div>
-                                            <div class="text-center">
-                                                <h6 style="font-weight: bold; font-size: 0.8vw; margin-top: 1.3vh;">
-                                                    ${user.nama_user.toUpperCase()}
-                                                </h6>
-                                            </div>
-                                            <div class="fixed-bottom">
-                                                <div style="width: 100%; height: 2vw; background-color: rgba(0, 128, 0, 0.2); border-top-right-radius: 50px; border-top-left-radius: 50px;"></div>
-                                            </div>
+        function totalHadir(){
+            fetch('https://hrisgelora.co.id/api/jumlah_hadir_teknik')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                console.log('Total Hadir:', data.total_hadir);
+                document.getElementById('jumlah-hadir').textContent = data.total_hadir;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+
+        function liveTask() {
+            fetch('https://family.geloraaksara.co.id/gap-f/api/live_task_teknik')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(responseData => {
+                console.log(responseData);
+                const data = responseData.data;
+                
+                if (!Array.isArray(data)) {
+                    console.error('Expected an array but got:', data);
+                    return;
+                }
+
+                const container = document.getElementById('taskContainer');
+                container.innerHTML = ''; 
+
+                data.forEach(item => {
+                    let fotoProfil = item.foto_profil ? `https://hrisgelora.co.id/upload/avatar/${item.foto_profil}` : 'https://hrisgelora.co.id/upload/avatar/default_profile.jpg';
+                    const startDateTime = new Date(`${item.tgl_mulai}`);
+                    const formattedDate = startDateTime.toLocaleDateString('id-ID', { day: '2-digit', month: '2-digit', year: 'numeric' });
+                    const formattedStartDateTime = `${formattedDate} ${item.jam_mulai}`;
+                    const taskElement = `
+                        <div class="bg-blue" style="width: 100%; margin-bottom: 0.5vw; padding: 1vw; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;" onclick="openModal(${item.id})">
+                            <div style="display: flex; align-items: center;">
+                                <div style="flex: 0 0 5vw; text-align: center;">
+                                    <img src="${fotoProfil}" 
+                                        class="rounded-circle" 
+                                        alt="Profile Picture" 
+                                        style="width: 7vh; height: 7vh; border: 2px solid #d66d47d0;">
+                                </div>
+                                <div style="flex: 1; padding-left: 0.4vw;">
+                                <div style="font-size: 1vw; font-weight: bold; text-transform: uppercase;">
+                                        ${item.nama_teknisi}
+                                    </div>
+                                    <div style="margin-top: 5px; font-size: 0.8vw; margin-top: 0px;">
+                                        ${item.handler}
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="position: absolute; top: 1vw; right: 1vw; font-size: 20px;">
+                                <div style="flex: 1; text-align: right;">
+                                    <div style="font-size: 1vw;">
+                                        ${item.no_permintaan}
+                                    </div>
+                                    <div style="margin-top: 5px; font-size: 0.8vw; margin-top: -3px;">
+                                        ${item.bagian}
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1vw; border: 1px solid #d66d47d0; padding: 0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
+                                <div style="flex: 1;">
+                                    <div style="font-size: 0.8vw;">
+                                        Permasalahan :
+                                    </div>
+                                    <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
+                                        ${item.masalah}
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 0.4vw; border: 1px solid #d66d47d0; padding:0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
+                                <div style="flex: 1;">
+                                    <div style="font-size: 0.8vw;">
+                                        Tindakan Teknisi :
+                                    </div>
+                                    <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
+                                        ${item.tindakan_teknisi}
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.3vw; padding-top: 0.4vw;">
+                                <div style="text-align: left; border: 1px solid #d66d47d0; padding: 0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 0.8vw;">
+                                            Status
+                                        </div>
+                                        <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
+                                            PROCESS
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align: center; border: 1px solid #d66d47d0; padding:0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 0.8vw;">
+                                            Start Time
+                                        </div>
+                                        <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
+                                            ${formattedStartDateTime}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align: center; border: 1px solid #d66d47d0; padding:0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 0.8vw;">
+                                            End Time
+                                        </div>
+                                        <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
+                                            ${item.tgl_selesai || '--/--/----'} ${item.jam_selesai || '--:--:--'}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align: right; font-size: 0.9vw; border: 1px solid #d66d47d0; padding:0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 0.8vw;">
+                                            <b>${item.kode_mesin}</b>
+                                        </div>
+                                        <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
+                                            ${item.nama_mesin}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    `;
 
-                    carouselContainer.insertAdjacentHTML('beforeend', userHTML);
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal-${item.id}" tabindex="-1" aria-labelledby="exampleModalLabel-${item.id}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel-${item.id}">${item.nama_teknisi} - Detail</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><strong>Handler:</strong> ${item.handler}</p>
+                                        <p><strong>Permasalahan:</strong> ${item.masalah}</p>
+                                        <p><strong>Tindakan:</strong> ${item.tindakan_teknisi}</p>
+                                        <p><strong>Status:</strong> PROCESS</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML += taskElement;
                 });
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
             });
-    }
+        }
 
-    const carouselContainer = document.querySelector('.carousel-inner');
-    setInterval(() => {
-        liveTask();
-        carouselContainer.innerHTML = '';
-        availableSDM();
-        totalHadir();
-    }, 60000);
-  </script>
+        function openModal(taskId) {
+            const modalId = `exampleModal-${taskId}`;
+            const modalElement = document.getElementById(modalId);
+            if (modalElement) {
+                const modal = new bootstrap.Modal(modalElement);
+                modal.show();
+            }
+        }
+
+        function availableSDM() {
+            fetch('https://family.geloraaksara.co.id/gap-f/api/available_teknisi')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const users = data.data;
+                    const carouselContainer = document.querySelector('.carousel-inner');
+
+                    users.forEach(user => {
+                        const avatarUrl = user.avatar 
+                            ? `https://hrisgelora.co.id/upload/avatar/${user.avatar}` 
+                            : 'https://hrisgelora.co.id/upload/avatar/default_profile.jpg';
+                        
+                        const userHTML = `
+                            <div class="carousel-item${users.indexOf(user) === 0 ? ' active' : ''}">
+                                <div class="container">
+                                    <div class="background-img">
+                                        <div class="box">
+                                            <span></span><span></span><span></span><span></span>
+                                            <div class="content">
+                                                <div class="d-flex justify-content-center">
+                                                    <img src="${avatarUrl}" class="rounded-circle" alt="User Image" style="width: 5.5vw; height: 5.5vw; object-fit: cover; border: 2px solid gray; margin-top:0.3vw">
+                                                </div>
+                                                <div class="text-center">
+                                                    <h6 style="font-weight: bold; font-size: 0.8vw; margin-top: 1.3vh;">
+                                                        ${user.nama_user.toUpperCase()}
+                                                    </h6>
+                                                </div>
+                                                <div class="fixed-bottom">
+                                                    <div style="width: 100%; height: 2vw; background-color: rgba(0, 128, 0, 0.2); border-top-right-radius: 50px; border-top-left-radius: 50px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+
+                        carouselContainer.insertAdjacentHTML('beforeend', userHTML);
+                    });
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
+
+        const carouselContainer = document.querySelector('.carousel-inner');
+        setInterval(() => {
+            liveTask();
+            carouselContainer.innerHTML = '';
+            availableSDM();
+            totalHadir();
+        }, 60000);
+    </script>
 </body>
 </html>
