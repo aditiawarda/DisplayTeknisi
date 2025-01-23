@@ -821,12 +821,15 @@
         }
 
         const carouselContainer = document.querySelector('.carousel-inner');
+        
+        // Start Looper
         setInterval(() => {
             liveTask();
             carouselContainer.innerHTML = '';
             availableSDM();
             totalHadir();
         }, 60000);
+        // End Looper
     </script>
 </body>
 </html>
