@@ -379,24 +379,24 @@
         <div class="wave"></div>
     </div> -->
 
-    <div style="padding-right: 0.5vw; padding-left: 0.5vw; padding-top:0vw; padding-bottom:0.5vw; color:  white; border-bottom: 0.2vw solid white;">
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 0.5vw;;">
+    <div style="padding-right: 0.5vw; padding-left: 0.5vw; padding-top:0vw; padding-bottom:0.3vw; color:  white; border-bottom: 0.2vw solid white;">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 0.2vw;;">
             <div style="text-align: left;">
                 <table>
                     <tr>
                         <td>
-                            <img src="https://hrisgelora.co.id/assets/img/live_img.gif" alt="" style="width: 6.2vw; height: 1.8vw;">
+                            <img src="https://hrisgelora.co.id/assets/img/live_img.gif" alt="" style="width: 5.2vw; height: 1.2vw;">
                         </td>
                         <td style="padding-left: 0.3vw;">
                             <div style="text-align: right; padding-top: 10px;">
-                                <h4 style="font-size: 1.1vw;"><b>UPDATE PERMINTAAN PERBAIKAN (PP) TEKNISI</b></h4>
+                                <h4 style="font-size: 0.9vw;"><b>UPDATE PERMINTAAN PERBAIKAN (PP) TEKNISI</b></h4>
                             </div>
                         </td>
                     </tr>
                 </table>
             </div>
             <div style="text-align: right; padding-top: 10px;">
-                <h4 style="font-size: 1.1vw;"><b id="current-date"></b></h4>
+                <h4 style="font-size: 0.9vw;"><b id="current-date"></b></h4>
             </div>
             
             <script>
@@ -472,7 +472,7 @@
                 </div> -->
             </div>
             <div class="col-md-9">
-                <div class="data-table" style="display: block; max-height: 87.3vh; overflow-y: auto; width: 100%; padding-right: 15px; padding-top: 20px; padding-bottom: 28px;">
+                <div class="data-table" style="display: block; max-height: 90.1vh; overflow-y: auto; width: 100%; padding-right: 5px; padding-top: 20px; padding-bottom: 28px;">
                     <div id="taskContainer"></div>
                 </div>   
             </div>
@@ -544,7 +544,7 @@
             var sb = $el.prop("scrollHeight") - $el.innerHeight();
             var dataCount = $el.children().length;
             console.log(dataCount);
-            var scrollSpeed = Math.max(60000, dataCount * 100);
+            var scrollSpeed = Math.max(30000, dataCount * 100);
             $el.animate({scrollTop: st < sb / 2 ? sb : 0}, scrollSpeed, anim);
         }
 
@@ -552,10 +552,9 @@
             $el.stop();
         }
 
+        // Start Runner
         anim();
         $el.hover(stop, anim);
-
-        // Start Runner
         showTime();
         totalSDM();
         totalHadir();
@@ -639,16 +638,16 @@
                     const formattedDate = startDateTime.toLocaleDateString('id-ID', { day: '2-digit', month: '2-digit', year: 'numeric' });
                     const formattedStartDateTime = `${formattedDate} ${item.jam_mulai}`;
                     const taskElement = `
-                        <div class="bg-blue" style="width: 100%; margin-bottom: 0.5vw; padding: 1vw; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;" onclick="openModal(${item.id})">
-                            <div style="display: flex; align-items: center;">
-                                <div style="flex: 0 0 5vw; text-align: center;">
+                        <div class="bg-blue" style="width: 100%; margin-bottom: 0.3vw; padding: 0.6vw; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); position: relative;" onclick="openModal(${item.id})">
+                            <div style="display: flex; align-items: left;">
+                                <div style="flex: 0 0 3vw; text-align: left;">
                                     <img src="${fotoProfil}" 
                                         class="rounded-circle" 
                                         alt="Profile Picture" 
-                                        style="width: 7vh; height: 7vh; border: 2px solid #d66d47d0;">
+                                        style="width: 5vh; height: 5vh; border: 1.6px solid #d66d47d0;">
                                 </div>
-                                <div style="flex: 1; padding-left: 0.4vw;">
-                                <div style="font-size: 1vw; font-weight: bold; text-transform: uppercase;">
+                                <div style="flex: 1; padding-left: 0vw;">
+                                    <div style="font-size: 0.8vw; font-weight: bold; text-transform: uppercase;">
                                         ${item.nama_teknisi}
                                     </div>
                                     <div style="margin-top: 5px; font-size: 0.8vw; margin-top: 0px;">
@@ -658,71 +657,71 @@
                             </div>
                             <div style="position: absolute; top: 1vw; right: 1vw; font-size: 20px;">
                                 <div style="flex: 1; text-align: right;">
-                                    <div style="font-size: 1vw;">
+                                    <div style="font-size: 0.8vw;">
                                         ${item.no_permintaan}
                                     </div>
-                                    <div style="margin-top: 5px; font-size: 0.8vw; margin-top: -3px;">
+                                    <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -2px;">
                                         ${item.bagian}
                                     </div>
                                 </div>
                             </div>
-                            <div style="margin-top: 1vw; border: 1px solid #d66d47d0; padding: 0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
+                            <div style="margin-top: 0.3vw; border: 1px solid #d66d47d0; padding: 0.2vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
                                 <div style="flex: 1;">
-                                    <div style="font-size: 0.8vw;">
+                                    <div style="font-size: 0.6vw;">
                                         Permasalahan :
                                     </div>
-                                    <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
+                                    <div style="font-size: 0.7vw; margin-top: -2px;">
                                         ${item.masalah}
                                     </div>
                                 </div>
                             </div>
-                            <div style="margin-top: 0.4vw; border: 1px solid #d66d47d0; padding:0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
+                            <div style="margin-top: 0.4vw; border: 1px solid #d66d47d0; padding:0.2vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
                                 <div style="flex: 1;">
-                                    <div style="font-size: 0.8vw;">
+                                    <div style="font-size: 0.6vw;">
                                         Tindakan Teknisi :
                                     </div>
-                                    <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
+                                    <div style="font-size: 0.7vw; margin-top: -2px;">
                                         ${item.tindakan_teknisi}
                                     </div>
                                 </div>
                             </div>
                             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.3vw; padding-top: 0.4vw;">
-                                <div style="text-align: left; border: 1px solid #d66d47d0; padding: 0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
+                                <div style="text-align: left; border: 1px solid #d66d47d0; padding: 0.2vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
                                     <div style="flex: 1;">
-                                        <div style="font-size: 0.8vw;">
+                                        <div style="font-size: 0.6vw;">
                                             Status
                                         </div>
-                                        <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
+                                        <div style="margin-top: 5px; font-size: 0.7vw; margin-top: 0px;">
                                             PROCESS
                                         </div>
                                     </div>
                                 </div>
-                                <div style="text-align: center; border: 1px solid #d66d47d0; padding:0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
+                                <div style="text-align: center; border: 1px solid #d66d47d0; padding:0.2vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
                                     <div style="flex: 1;">
-                                        <div style="font-size: 0.8vw;">
+                                        <div style="font-size: 0.6vw;">
                                             Start Time
                                         </div>
-                                        <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
+                                        <div style="margin-top: 5px; font-size: 0.7vw; margin-top: 0px;">
                                             ${formattedStartDateTime}
                                         </div>
                                     </div>
                                 </div>
-                                <div style="text-align: center; border: 1px solid #d66d47d0; padding:0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
+                                <div style="text-align: center; border: 1px solid #d66d47d0; padding:0.2vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
                                     <div style="flex: 1;">
-                                        <div style="font-size: 0.8vw;">
+                                        <div style="font-size: 0.6vw;">
                                             End Time
                                         </div>
-                                        <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
+                                        <div style="margin-top: 5px; font-size: 0.7vw; margin-top: 0px;">
                                             ${item.tgl_selesai || '--/--/----'} ${item.jam_selesai || '--:--:--'}
                                         </div>
                                     </div>
                                 </div>
-                                <div style="text-align: right; font-size: 0.9vw; border: 1px solid #d66d47d0; padding:0.4vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
+                                <div style="text-align: right; font-size: 0.9vw; border: 1px solid #d66d47d0; padding:0.2vw; border-radius: 5px; padding-left:0.6vw; padding-right:0.6vw">
                                     <div style="flex: 1;">
                                         <div style="font-size: 0.8vw;">
                                             <b>${item.kode_mesin}</b>
                                         </div>
-                                        <div style="margin-top: 5px; font-size: 0.9vw; margin-top: -3px;">
+                                        <div style="margin-top: 5px; font-size: 0.7vw; margin-top: -3px;">
                                             ${item.nama_mesin}
                                         </div>
                                     </div>
@@ -735,7 +734,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel-${item.id}">${item.nama_teknisi} - Detail</h5>
+                                        <h6 class="modal-title" id="exampleModalLabel-${item.id}">${item.no_permintaan}</h6>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -821,7 +820,7 @@
         }
 
         const carouselContainer = document.querySelector('.carousel-inner');
-        
+
         // Start Looper
         setInterval(() => {
             liveTask();
